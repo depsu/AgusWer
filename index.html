@@ -1,0 +1,803 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Venta de Coligues de Alta Calidad | Despacho a todo Chile | Coligue Sur</title>
+    <meta name="description" content="Somos productores y distribuidores de coligues de la más alta calidad para agricultura, construcción y minería. Stock todo el año y despacho a nivel nacional. Cotiza tu proyecto.">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* ------------------- */
+        /* VARIABLES Y RESET   */
+        /* ------------------- */
+        :root {
+            --color-primario: #2E7D32; /* Verde más vibrante */
+            --color-primario-oscuro: #1B5E20;
+            --color-secundario: #F5F5F5; /* Gris muy claro */
+            --color-texto: #333333;
+            --color-blanco: #ffffff;
+            --color-borde: #E0E0E0;
+            --sombra-suave: 0 4px 6px rgba(0,0,0,0.05);
+            --sombra-media: 0 10px 20px rgba(0,0,0,0.1);
+            --nav-height: 70px;
+        }
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: var(--nav-height);
+        }
+
+        body {
+            font-family: 'Poppins', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--color-blanco);
+            color: var(--color-texto);
+            line-height: 1.7;
+            font-weight: 300;
+        }
+
+        /* ------------------- */
+        /* UTILIDADES          */
+        /* ------------------- */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        h1, h2, h3, h4 {
+            font-weight: 600;
+            line-height: 1.2;
+            color: var(--color-primario-oscuro);
+        }
+
+        h1 { font-size: clamp(2.5rem, 5vw, 4rem); }
+        h2 { font-size: clamp(2rem, 4vw, 2.8rem); text-align: center; margin-bottom: 1rem; }
+        h3 { font-size: 1.5rem; }
+
+        .section-subtitle {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 4rem auto;
+            font-size: 1.1rem;
+            color: #666;
+        }
+
+        .btn {
+            display: inline-block;
+            background: var(--color-primario);
+            color: var(--color-blanco);
+            padding: 14px 32px;
+            text-decoration: none;
+            font-weight: 600;
+            border-radius: 50px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(46, 125, 50, 0.3);
+        }
+
+        .btn:hover {
+            background: var(--color-primario-oscuro);
+            transform: translateY(-3px);
+            box-shadow: 0 7px 20px rgba(27, 94, 32, 0.4);
+        }
+        
+        .btn-outline {
+            background: transparent;
+            color: var(--color-primario);
+            border: 2px solid var(--color-primario);
+            box-shadow: none;
+        }
+        .btn-outline:hover {
+            background: var(--color-primario);
+            color: var(--color-blanco);
+            box-shadow: none;
+        }
+
+        section {
+            padding: 6rem 0;
+        }
+
+        /* ------------------- */
+        /* NAVEGACIÓN          */
+        /* ------------------- */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: var(--nav-height);
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: var(--sombra-suave);
+            padding: 0 2rem;
+        }
+
+        .navbar-logo {
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: var(--color-primario);
+            text-decoration: none;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 1.5rem;
+        }
+
+        .nav-links a {
+            color: var(--color-texto);
+            text-decoration: none;
+            font-weight: 600;
+            position: relative;
+            padding: 5px 0;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--color-primario);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            border: none;
+            background: none;
+        }
+        .hamburger .bar {
+            display: block;
+            width: 25px;
+            height: 3px;
+            margin: 5px auto;
+            background-color: var(--color-primario-oscuro);
+            transition: all 0.3s ease-in-out;
+        }
+
+        /* ------------------- */
+        /* HERO SECTION        */
+        /* ------------------- */
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--color-blanco);
+            overflow: hidden;
+        }
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('/banner.png'); /* IMAGEN DE FONDO PROFESIONAL */
+            background-size: cover;
+            background-position: center;
+            z-index: -2;
+            animation: kenburns 20s ease-out infinite;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: -1;
+        }
+        
+        @keyframes kenburns {
+            0% { transform: scale(1) translate(0, 0); }
+            50% { transform: scale(1.1) translate(-2%, 2%); }
+            100% { transform: scale(1) translate(0, 0); }
+        }
+
+        .hero-content {
+            max-width: 900px;
+            padding: 0 1rem;
+        }
+        .hero h1 {
+            color: var(--color-blanco);
+            text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+        }
+        .hero p {
+            font-size: 1.3rem;
+            margin: 1.5rem 0 2.5rem 0;
+            font-weight: 300;
+        }
+
+        /* ------------------- */
+        /* SECCIONES           */
+        /* ------------------- */
+        #nosotros, #proyectos, #contacto {
+            background-color: var(--color-blanco);
+        }
+        #proceso {
+            background-color: var(--color-secundario);
+        }
+        
+        /* Sección Nosotros / Características */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2.5rem;
+            margin-top: 4rem;
+        }
+        .feature-card {
+            background: var(--color-blanco);
+            padding: 2.5rem 2rem;
+            border-radius: 12px;
+            border: 1px solid var(--color-borde);
+            text-align: center;
+            transition: all 0.3s ease;
+            box-shadow: var(--sombra-suave);
+        }
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--sombra-media);
+        }
+        .feature-icon {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            width: 70px;
+            height: 70px;
+            background: var(--color-secundario);
+            border-radius: 50%;
+            margin-bottom: 1.5rem;
+        }
+        .feature-icon svg {
+            width: 36px;
+            height: 36px;
+            stroke: var(--color-primario);
+        }
+        .feature-card h3 {
+            margin-bottom: 1rem;
+        }
+
+        /* Sección Proyectos */
+        .proyectos-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+        .proyecto-card {
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--sombra-media);
+            position: relative;
+            cursor: pointer;
+        }
+        .proyecto-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+        .proyecto-card:hover img {
+            transform: scale(1.1);
+        }
+        .proyecto-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            color: var(--color-blanco);
+            padding: 3rem 1.5rem 1.5rem 1.5rem;
+            transform: translateY(100%);
+            transition: transform 0.4s ease-in-out;
+        }
+        .proyecto-card:hover .proyecto-overlay {
+            transform: translateY(0);
+        }
+        .proyecto-overlay h4 {
+            color: var(--color-blanco);
+            margin-bottom: 0.5rem;
+        }
+        .proyectos-cta {
+            text-align: center;
+            margin-top: 4rem;
+        }
+        
+        /* Sección Proceso */
+        .proceso-wrapper {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+        .proceso-step {
+            display: flex;
+            align-items: flex-start;
+            gap: 2rem;
+            padding: 2rem;
+            background-color: var(--color-blanco);
+            border-radius: 12px;
+            box-shadow: var(--sombra-suave);
+        }
+        .proceso-number {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--color-primario);
+            line-height: 1;
+        }
+        
+        /* Sección Contacto */
+        .contact-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            background: var(--color-blanco);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--sombra-media);
+        }
+        .contact-info {
+            background: var(--color-primario);
+            color: var(--color-blanco);
+            padding: 3rem;
+        }
+        .contact-info h3, .contact-info p {
+            color: var(--color-blanco);
+        }
+        .contact-info ul {
+            list-style: none;
+            margin-top: 2rem;
+        }
+        .contact-info li {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        .contact-form {
+            padding: 3rem;
+        }
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid var(--color-borde);
+            border-radius: 8px;
+            font-family: 'Poppins', sans-serif;
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+        .form-group input:focus, .form-group textarea:focus {
+            outline: none;
+            border-color: var(--color-primario);
+            box-shadow: 0 0 0 3px rgba(46, 125, 50, 0.2);
+        }
+
+        /* ------------------- */
+        /* FOOTER              */
+        /* ------------------- */
+        .footer {
+            background: var(--color-primario-oscuro);
+            color: var(--color-blanco);
+            padding: 4rem 0 2rem 0;
+            text-align: center;
+        }
+        .footer a {
+            color: var(--color-blanco);
+            text-decoration: none;
+        }
+
+        /* ------------------- */
+        /* ANIMACIONES SCROLL  */
+        /* ------------------- */
+        .reveal {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 1s ease;
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* ------------------- */
+        /* RESPONSIVE DESIGN   */
+        /* ------------------- */
+        @media(max-width: 992px) {
+            .nav-links {
+                position: fixed;
+                top: var(--nav-height);
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - var(--nav-height));
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                background: var(--color-blanco);
+                transition: left 0.4s ease-in-out;
+                gap: 2rem;
+            }
+            .nav-links.active {
+                left: 0;
+            }
+            .nav-links a { font-size: 1.5rem; }
+
+            .hamburger { display: block; }
+            .hamburger.active .bar:nth-child(2) { opacity: 0; }
+            .hamburger.active .bar:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+            .hamburger.active .bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+
+            .proyectos-grid { grid-template-columns: repeat(2, 1fr); }
+            .contact-wrapper { grid-template-columns: 1fr; }
+        }
+
+        @media(max-width: 768px) {
+            h1 { font-size: 2.2rem; }
+            h2 { font-size: 1.8rem; }
+            .hero p { font-size: 1.1rem; }
+            section { padding: 4rem 0; }
+            
+            .proyectos-grid { grid-template-columns: 1fr; }
+            .proceso-step { flex-direction: column; align-items: center; text-align: center; }
+        }
+
+        /* ------------------- */
+        /* BANNER NOSOTROS     */
+        /* ------------------- */
+        .nosotros-banner {
+            position: relative;
+            border-radius: 12px;
+            overflow: hidden;
+            color: var(--color-blanco);
+            text-align: center;
+            box-shadow: var(--sombra-media);
+        }
+        .nosotros-banner-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('/nosotros.jpg'); /* IMAGEN PARA EL BANNER */
+            background-size: cover;
+            background-position: center;
+            z-index: 1;
+            filter: brightness(0.7); /* Opcional: oscurece un poco la imagen */
+        }
+        .nosotros-banner-content {
+            position: relative;
+            z-index: 2;
+            padding: 5rem 2rem;
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)); /* Capa oscura para legibilidad */
+        }
+        .nosotros-banner h2 {
+            color: var(--color-blanco);
+            text-shadow: 1px 1px 5px rgba(0,0,0,0.5);
+        }
+        .nosotros-banner p {
+            max-width: 700px;
+            margin: 1rem auto 0 auto;
+            font-size: 1.1rem;
+        }
+
+        /* Ajuste para dar espacio entre el banner y las tarjetas de abajo */
+        .features-grid {
+            margin-top: 4rem;
+        }
+
+        /* ------------------- */
+        /* SECCIÓN UBICACIÓN   */
+        /* ------------------- */
+        #ubicacion {
+            position: relative;
+            padding: 0;
+            height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .map-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://encrypted-tbn2.gstatic.com/licensed-image?q=tbn:ANd9GcSFAyCSUg3T_uE58slWTYJ_hUcRJfEQTP0do1XJBD_yndYqwgaAuIL0kvxsjTz8EGsTKMlMgQdMNdvdSyZxDLw3gKlOODCNCMRpGiRVVw'); /* Imagen estática de un mapa de la zona */
+            background-size: cover;
+            background-position: center;
+            filter: grayscale(1) brightness(0.5); /* Efecto blanco y negro y oscuro */
+        }
+        .ubicacion-content {
+            position: relative;
+            z-index: 2;
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+            padding: 3rem;
+            border-radius: 12px;
+            text-align: center;
+            max-width: 600px;
+            box-shadow: var(--sombra-media);
+        }
+        .ubicacion-content h2 {
+            margin-bottom: 1rem;
+        }
+        .ubicacion-content p {
+            margin-bottom: 2rem;
+            color: #555;
+        }
+
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="container" style="display:flex; justify-content:space-between; align-items:center; width:100%;">
+            <a href="#" class="navbar-logo">ColigueSur</a>
+            <ul class="nav-links">
+                <li><a href="#hero">Inicio</a></li>
+                <li><a href="#nosotros">Nosotros</a></li>
+                <li><a href="#proyectos">Proyectos</a></li>
+                <li><a href="#proceso">Proceso</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+            <button class="hamburger" id="hamburger" aria-label="Abrir menú">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+        </div>
+    </nav>
+
+    <header class="hero" id="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-content">
+            <h1 class="reveal">Calidad y Resistencia Natural para tus Proyectos</h1>
+            <p class="reveal">Somos productores líderes en coligues para la agricultura, construcción y minería. Ofrecemos soluciones a medida con despacho a todo Chile.</p>
+            <a href="#contacto" class="btn reveal">Solicitar Cotización</a>
+        </div>
+    </header>
+
+    <main>
+
+      <section id="nosotros">
+            <div class="container">
+                <div class="nosotros-banner reveal">
+                    <div class="nosotros-banner-bg"></div>
+                    <div class="nosotros-banner-content">
+                        <h2>La Diferencia está en el Origen y el Compromiso</h2>
+                        <p>Nacimos para fortalecer el crecimiento agrícola y hoy somos un aliado estratégico a nivel nacional, entregando un producto superior con un servicio en el que puedes confiar.</p>
+                    </div>
+                </div>
+                <div class="features-grid">
+                    <div class="feature-card reveal">
+                        <div class="feature-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                        </div>
+                        <h3>Calidad Garantizada</h3>
+                        <p>Seleccionamos varas de coligue de alta resistencia y durabilidad, perfectas para las exigencias de tu proyecto.</p>
+                    </div>
+                    <div class="feature-card reveal">
+                        <div class="feature-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 14.899A7 7 0 1 1 15.71 8h1.79a4.5 4.5 0 0 1 2.5 8.242"></path><path d="M12 12v9"></path><path d="m8 17 4 4 4-4"></path></svg>
+                        </div>
+                        <h3>Gran Capacidad y Stock</h3>
+                        <p>Nuestra capacidad productiva asegura disponibilidad constante durante todo el año, incluso para pedidos de gran volumen.</p>
+                    </div>
+                    <div class="feature-card reveal">
+                        <div class="feature-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+                        </div>
+                        <h3>Pedidos a Medida</h3>
+                        <p>Nos adaptamos a tus necesidades específicas, con varas de 1 a 4 metros y requerimientos especiales.</p>
+                    </div>
+                    <div class="feature-card reveal">
+                        <div class="feature-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg>
+                        </div>
+                        <h3>Despacho a todo Chile</h3>
+                        <p>Coordinamos una logística eficiente para que tu pedido llegue de forma segura y puntual a cualquier rincón del país.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="proyectos">
+            <div class="container">
+                <h2 class="reveal">Soluciones que Dejan Huella</h2>
+                <p class="section-subtitle reveal">Desde campos de cerezos hasta innovadores proyectos de construcción, nuestros coligues son sinónimo de éxito.</p>
+                <div class="proyectos-grid">
+                    <a href="proyectos.html" class="proyecto-card reveal">
+                        <img src="MINERIA.jpeg" alt="coligue para mineria">
+                        <div class="proyecto-overlay">
+                            <h4>Minería</h4>
+                            <p>Proyectos a diferentes minerías de Chile</p>
+                        </div>
+                    </a>
+                    <a href="proyectos.html" class="proyecto-card reveal">
+                        <img src="CONAF.jpeg" alt="Construcción sostenible con bambú">
+                        <div class="proyecto-overlay">
+                            <h4>Apoyo a Conaf</h4>
+                            <p>Se entrega a Conaf para reforestación</p>
+                        </div>
+                    </a>
+                    <a href="proyectos.html" class="proyecto-card reveal">
+                        <img src="/VIÑEDO.jpeg" alt="Viñedo coligue">
+                        <div class="proyecto-overlay">
+                            <h4>Viñedo</h4>
+                            <p>Soporte esencial para el crecimiento de vides y frutales</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="proyectos-cta reveal">
+                    <a href="proyectos.html" class="btn btn-outline">Ver Más Proyectos</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="proceso">
+            <div class="container">
+                <h2 class="reveal">Tu Pedido en 3 Simples Pasos</h2>
+                <p class="section-subtitle reveal">Hemos simplificado el proceso para que obtener coligues de calidad sea rápido y sin complicaciones.</p>
+                <div class="proceso-wrapper">
+                    <div class="proceso-step reveal">
+                        <div class="proceso-number">01</div>
+                        <div class="proceso-content">
+                            <h3>Contacto y Cotización</h3>
+                            <p>Cuéntanos tu necesidad a través de nuestro formulario o teléfono. Te enviaremos una cotización detallada y competitiva a la brevedad.</p>
+                        </div>
+                    </div>
+                    <div class="proceso-step reveal">
+                        <div class="proceso-number">02</div>
+                        <div class="proceso-content">
+                            <h3>Preparación y Selección</h3>
+                            <p>Una vez aprobada la cotización, nuestro equipo selecciona y prepara tu pedido, asegurando que cada vara cumpla con nuestros estándares de calidad.</p>
+                        </div>
+                    </div>
+                    <div class="proceso-step reveal">
+                        <div class="proceso-number">03</div>
+                        <div class="proceso-content">
+                            <h3>Despacho y Entrega</h3>
+                            <p>Coordinamos la logística y despachamos tu pedido para que llegue en la fecha acordada a tu faena, campo o bodega en cualquier lugar de Chile.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="ubicacion">
+            <div class="map-bg"></div>
+            <div class="container">
+                <div class="ubicacion-content reveal">
+                    <h2>Nuestro Origen</h2>
+                    <p>Estamos ubicados en el corazón de la Araucanía, la cuna del coligue de la más alta calidad. Desde aquí, despachamos a todo el país.</p>
+                    <!-- <a href="https://maps.google.com/?cid=14049692105215869960&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQ" target="_blank" rel="noopener noreferrer" class="btn">Ver en Google Maps</a> -->
+                </div>
+            </div>
+        </section>
+
+        <section id="contacto">
+            <div class="container">
+                <h2 class="reveal">Hablemos de tu Proyecto</h2>
+                <p class="section-subtitle reveal">Estamos listos para asesorarte y entregarte la mejor solución. Completa el formulario y comencemos a trabajar juntos.</p>
+                <div class="contact-wrapper reveal">
+                    <div class="contact-info">
+                        <h3>Información de Contacto</h3>
+                        <p>Contáctanos directamente o déjanos tus datos y te llamaremos.</p>
+                        <ul>
+                            <li>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15.05 5A5 5 0 0 1 19 8.95M15.05 1A9 9 0 0 1 23 8.94m-1 7.98v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.98z"></path></svg>
+                                <a href="tel:+56912345678">+56 9 1234 5678</a>
+                            </li>
+                            <li>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                                <a href="mailto:ventas@coliguesurdechile.cl">ventas@coliguesurdechile.cl</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <form class="contact-form" action="#" method="POST">
+                        <div class="form-group">
+                            <label for="nombre">Nombre Completo</label>
+                            <input type="text" id="nombre" name="nombre" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                         <div class="form-group">
+                            <label for="telefono">Teléfono</label>
+                            <input type="tel" id="telefono" name="telefono">
+                        </div>
+                        <div class="form-group">
+                            <label for="mensaje">¿Qué necesitas? (Medidas, cantidad, etc.)</label>
+                            <textarea id="mensaje" name="mensaje" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn">Enviar Consulta</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Coligue Sur de Chile. Todos los derechos reservados.</p>
+            <p>Calidad y Compromiso desde el Sur para todo el País.</p>
+        </div>
+    </footer>
+
+    <script>
+        // --- Lógica para el menú hamburguesa en móvil ---
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.querySelector('.nav-links');
+
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            hamburger.classList.toggle('active');
+        });
+
+        // Cierra el menú al hacer clic en un enlace (para SPA-like behavior)
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                if (navLinks.classList.contains('active')) {
+                    navLinks.classList.remove('active');
+                    hamburger.classList.remove('active');
+                }
+            });
+        });
+
+
+        // --- Lógica para la animación al hacer scroll ---
+        const revealElements = document.querySelectorAll('.reveal');
+
+        const revealObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.15 // El elemento se revela cuando el 15% es visible
+        });
+
+        revealElements.forEach(element => {
+            revealObserver.observe(element);
+        });
+    </script>
+</body>
+</html>

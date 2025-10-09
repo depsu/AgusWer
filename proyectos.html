@@ -1,0 +1,357 @@
+<style>
+    :root {
+        --color-primario: #2a5a2a;
+        /* Verde oscuro */
+        --color-secundario: #f4f4f4;
+        /* Fondo claro */
+        --color-texto: #333333;
+        --color-blanco: #ffffff;
+        --nav-height: 70px;
+        /* Altura de la barra de navegación */
+    }
+
+    html {
+        scroll-behavior: smooth;
+        /* Efecto de scroll suave */
+        scroll-padding-top: var(--nav-height);
+        /* Evita que el menú tape los títulos */
+    }
+
+    body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        line-height: 1.6;
+        color: var(--color-texto);
+    }
+
+    .container {
+        max-width: 1100px;
+        margin: auto;
+        padding: 0 20px;
+        overflow: hidden;
+    }
+
+    /* --- BARRA DE NAVEGACIÓN --- */
+    .navbar {
+        background: var(--color-blanco);
+        height: var(--nav-height);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 2rem;
+        position: sticky;
+        top: 0;
+        width: 100%;
+        box-sizing: border-box;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        z-index: 1000;
+    }
+
+    .navbar .logo {
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: var(--color-primario);
+        text-decoration: none;
+    }
+
+    .navbar ul {
+        list-style: none;
+        display: flex;
+        margin: 0;
+        padding: 0;
+    }
+
+    .navbar ul li a {
+        color: var(--color-texto);
+        padding: 1rem;
+        text-decoration: none;
+        font-weight: 600;
+        transition: color 0.3s ease;
+    }
+
+    .navbar ul li a:hover {
+        color: var(--color-primario);
+    }
+
+    /* --- ESTILOS GENERALES Y BOTONES --- */
+    .hero {
+        background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://via.placeholder.com/1500x800.png?text=Fondo+de+Coligues') no-repeat center center/cover;
+        color: var(--color-blanco);
+        height: calc(80vh - var(--nav-height));
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        padding: 0 20px;
+    }
+
+    .hero h1 {
+        font-size: 2.8rem;
+        margin-bottom: 10px;
+    }
+
+    .hero h2 {
+        font-size: 1.4rem;
+        font-weight: 400;
+        max-width: 800px;
+        margin-bottom: 30px;
+    }
+
+    .btn {
+        display: inline-block;
+        background: var(--color-primario);
+        color: var(--color-blanco);
+        padding: 15px 35px;
+        text-decoration: none;
+        font-size: 1.2rem;
+        font-weight: bold;
+        border-radius: 8px;
+        transition: transform 0.2s ease, background-color 0.3s ease;
+    }
+
+    .btn:hover {
+        background: #3a7a3a;
+        transform: translateY(-2px);
+    }
+
+    section {
+        padding: 80px 0;
+    }
+
+    section h3,
+    .section-title {
+        text-align: center;
+        font-size: 2.2rem;
+        margin-bottom: 50px;
+        color: var(--color-primario);
+    }
+
+    .bg-light {
+        background-color: var(--color-secundario);
+    }
+
+    /* --- SECCIÓN DE PROYECTOS --- */
+    .proyectos-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 30px;
+    }
+
+    .proyecto-card {
+        background: var(--color-blanco);
+        border-radius: 8px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .proyecto-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+    }
+
+    .proyecto-card img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        display: block;
+    }
+
+    .proyecto-card-content {
+        padding: 20px;
+    }
+
+    .proyecto-card-content h4 {
+        margin-top: 0;
+        font-size: 1.3rem;
+        color: var(--color-primario);
+    }
+
+    .text-center {
+        text-align: center;
+    }
+
+    .mt-40 {
+        margin-top: 40px;
+    }
+
+    /* --- OTROS ESTILOS (Formulario, Footer, etc. se mantienen similares) --- */
+    .form-container {
+        max-width: 700px;
+        margin: auto;
+        background: #fff;
+        padding: 30px;
+        border-radius: 8px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .form-group {
+        margin-bottom: 20px;
+    }
+
+    .form-group label {
+        display: block;
+        margin-bottom: 5px;
+    }
+
+    .form-group input,
+    .form-group textarea {
+        width: 100%;
+        padding: 12px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-sizing: border-box;
+    }
+
+    .form-btn {
+        width: 100%;
+        border: none;
+        cursor: pointer;
+    }
+
+    footer {
+        background: var(--color-texto);
+        color: var(--color-blanco);
+        text-align: center;
+        padding: 30px 0;
+    }
+
+    footer a {
+        color: var(--color-blanco);
+        text-decoration: none;
+    }
+
+    /* Adaptación para móviles */
+    @media (max-width: 768px) {
+        .navbar {
+            flex-direction: column;
+            height: auto;
+            padding: 1rem;
+        }
+
+        .navbar ul {
+            flex-direction: column;
+            text-align: center;
+            width: 100%;
+            margin-top: 1rem;
+        }
+
+        .navbar ul li {
+            width: 100%;
+        }
+
+        .hero {
+            height: auto;
+            padding: 60px 20px;
+        }
+
+        .hero h1 {
+            font-size: 2rem;
+        }
+
+        section {
+            padding: 40px 0;
+        }
+    }
+</style>
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proyectos - Coligue Sur de Chile</title>
+    <meta name="description"
+        content="Galería de proyectos realizados con nuestros coligues de alta calidad. Vea nuestras soluciones en agricultura, construcción, minería y más.">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <a href="index.html" class="logo">Coligue Sur de Chile</a>
+        <ul>
+            <li><a href="index.html#hero">Inicio</a></li>
+            <li><a href="index.html#propuesta-valor">Nosotros</a></li>
+            <li><a href="proyectos.html">Proyectos</a></li>
+            <li><a href="index.html#contacto">Contacto</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section id="galeria-completa">
+            <div class="container">
+                <h1 class="section-title">Galería de Proyectos</h1>
+                <p style="text-align: center; max-width: 800px; margin: -40px auto 50px auto;">
+                    Conoce cómo nuestros coligues marcan la diferencia en diversas industrias. Calidad y resistencia que
+                    se ven en cada proyecto.
+                </p>
+
+                <div class="proyectos-grid">
+                    <div class="proyecto-card">
+                        <img src="servicio1.jpeg" alt="Proyecto agrícola con coligues">
+                        <div class="proyecto-card-content">
+                            <h4>Proyecto Agrícola</h4>
+                            <p>Soluciones para el campo.</p>
+                        </div>
+                    </div>
+                    <div class="proyecto-card">
+                        <img src="servicio2.jpeg" alt="Proyecto de construcción con coligues">
+                        <div class="proyecto-card-content">
+                            <h4>Proyecto de Construcción</h4>
+                            <p>Estructuras resistentes y naturales.</p>
+                        </div>
+                    </div>
+                    <div class="proyecto-card">
+                        <img src="servicio3.jpeg" alt="Proyecto de minería con coligues">
+                        <div class="proyecto-card-content">
+                            <h4>Aplicaciones en Minería</h4>
+                            <p>Señalización y soporte.</p>
+                        </div>
+                    </div>
+                    <div class="proyecto-card">
+                        <img src="servicio4.jpeg" alt="Proyecto para viñedos">
+                        <div class="proyecto-card-content">
+                            <h4>Estructuras para Viñedos</h4>
+                            <p>Soporte para vides y parras.</p>
+                        </div>
+                    </div>
+                    <div class="proyecto-card">
+                        <img src="servicio6.jpeg" alt="Proyecto de artesanía y diseño">
+                        <div class="proyecto-card-content">
+                            <h4>Diseño y Artesanía</h4>
+                            <p>Creaciones únicas con coligüe.</p>
+                        </div>
+                    </div>
+                    <div class="proyecto-card">
+                        <img src="servicio5.jpeg" alt="Cerco perimetral con coligues">
+                        <div class="proyecto-card-content">
+                            <h4>Cercos Perimetrales</h4>
+                            <p>Delimitación rústica y duradera.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="text-center mt-40">
+                    <a href="index.html#contacto" class="btn">¿Interesado? ¡Cotiza tu proyecto!</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p><strong>Coligue Sur de Chile</strong></p>
+            <p><a href="tel:+56912345678">📞 +56 9 XXXX XXXX</a> | <a href="mailto:ventas@coliguesurdechile.cl">✉️
+                    ventas@coliguesurdechile.cl</a></p>
+            <p>Calidad, seriedad y compromiso desde el origen.</p>
+        </div>
+    </footer>
+
+</body>
+
+</html>
