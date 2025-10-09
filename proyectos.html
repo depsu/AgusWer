@@ -33,47 +33,80 @@
     }
 
     /* --- BARRA DE NAVEGACIÓN --- */
-    .navbar {
-        background: var(--color-blanco);
-        height: var(--nav-height);
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 0 2rem;
-        position: sticky;
-        top: 0;
-        width: 100%;
-        box-sizing: border-box;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        z-index: 1000;
-    }
+     .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: var(--nav-height);
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: var(--sombra-suave);
+            padding: 0 2rem;
+        }
 
-    .navbar .logo {
-        font-size: 1.5rem;
-        font-weight: bold;
-        color: var(--color-primario);
-        text-decoration: none;
-    }
+        .navbar-logo {
 
-    .navbar ul {
-        list-style: none;
-        display: flex;
-        margin: 0;
-        padding: 0;
-    }
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: var(--color-primario);
+            text-decoration: none;
+        }
 
-    .navbar ul li a {
-        color: var(--color-texto);
-        padding: 1rem;
-        text-decoration: none;
-        font-weight: 600;
-        transition: color 0.3s ease;
-    }
+        .navbar-logo img {
+            width: 55px;
+            height: 55px;
+        }
 
-    .navbar ul li a:hover {
-        color: var(--color-primario);
-    }
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 1.5rem;
+        }
 
+        .nav-links a {
+            color: var(--color-texto);
+            text-decoration: none;
+            font-weight: 600;
+            position: relative;
+            padding: 5px 0;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--color-primario);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            border: none;
+            background: none;
+        }
+
+        .hamburger .bar {
+            display: block;
+            width: 25px;
+            height: 3px;
+            margin: 5px auto;
+            background-color: var(--color-primario-oscuro);
+            transition: all 0.3s ease-in-out;
+        }
     /* --- ESTILOS GENERALES Y BOTONES --- */
     .hero {
         background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://via.placeholder.com/1500x800.png?text=Fondo+de+Coligues') no-repeat center center/cover;
@@ -272,14 +305,26 @@
 
 <body>
 
+
+
+
     <nav class="navbar">
-        <a href="index.html" class="logo">Coligue Sur de Chile</a>
-        <ul>
-            <li><a href="index.html#hero">Inicio</a></li>
+        <div class="container" style="display:flex; justify-content:space-between; align-items:center; width:100%;">
+            <a href="#" class="navbar-logo">
+                <img src="logo-removebg-preview.png" alt="Logo ColigueSur" />
+            </a>
+            <ul class="nav-links">
+                           <li><a href="index.html#hero">Inicio</a></li>
             <li><a href="index.html#propuesta-valor">Nosotros</a></li>
             <li><a href="proyectos.html">Proyectos</a></li>
             <li><a href="index.html#contacto">Contacto</a></li>
-        </ul>
+            </ul>
+            <button class="hamburger" id="hamburger" aria-label="Abrir menú">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+        </div>
     </nav>
 
     <main>
@@ -343,14 +388,33 @@
         </section>
     </main>
 
-    <footer>
+     <footer class="footer">
         <div class="container">
-            <p><strong>Coligue Sur de Chile</strong></p>
-            <p><a href="tel:+56912345678">📞 +56 9 XXXX XXXX</a> | <a href="mailto:ventas@coliguesurdechile.cl">✉️
-                    ventas@coliguesurdechile.cl</a></p>
-            <p>Calidad, seriedad y compromiso desde el origen.</p>
+            <p>&copy; 2025 Coligue Sur de Chile. Todos los derechos reservados.</p>
+            <p>Calidad y Compromiso desde el Sur para todo el País.</p>
         </div>
     </footer>
+
+    <script>
+             const hamburger = document.getElementById('hamburger');
+        const navLinks = document.querySelector('.nav-links');
+
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            hamburger.classList.toggle('active');
+        });
+
+        // Cierra el menú al hacer clic en un enlace (para SPA-like behavior)
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                if (navLinks.classList.contains('active')) {
+                    navLinks.classList.remove('active');
+                    hamburger.classList.remove('active');
+                }
+            });
+        });
+
+    </script>
 
 </body>
 
