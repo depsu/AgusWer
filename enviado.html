@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>¡Formulario Enviado! | Coligue Sur</title>
+    <meta name="description" content="Confirmación de envío de formulario de contacto.">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* ------------------- */
+        /* VARIABLES Y RESET (Copiado de tu página principal para mantener consistencia) */
+        /* ------------------- */
+        :root {
+            --color-primario: #2E7D32;
+            --color-primario-oscuro: #1B5E20;
+            --color-secundario: #F5F5F5;
+            --color-texto: #333333;
+            --color-blanco: #ffffff;
+            --color-borde: #E0E0E0;
+            --sombra-suave: 0 4px 6px rgba(0,0,0,0.05);
+            --sombra-media: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html, body {
+            height: 100%;
+        }
+
+        body {
+            font-family: 'Poppins', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--color-secundario); /* Fondo gris claro */
+            color: var(--color-texto);
+            line-height: 1.7;
+            font-weight: 300;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+        }
+
+        /* ------------------- */
+        /* ESTILOS DE LA TARJETA DE ÉXITO */
+        /* ------------------- */
+        .success-card {
+            background-color: var(--color-blanco);
+            padding: 3rem 4rem;
+            border-radius: 12px;
+            box-shadow: var(--sombra-media);
+            text-align: center;
+            max-width: 600px;
+            width: 100%;
+            animation: fadeIn 0.5s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .success-icon {
+            margin-bottom: 1.5rem;
+        }
+
+        .success-icon svg {
+            width: 80px;
+            height: 80px;
+            stroke: var(--color-primario);
+        }
+
+        h1 {
+            font-size: clamp(2rem, 4vw, 2.5rem);
+            font-weight: 600;
+            line-height: 1.2;
+            color: var(--color-primario-oscuro);
+            margin-bottom: 1rem;
+        }
+
+        p {
+            font-size: 1.1rem;
+            color: #666;
+            margin-bottom: 2.5rem;
+        }
+
+        .btn {
+            display: inline-block;
+            background: var(--color-primario);
+            color: var(--color-blanco);
+            padding: 14px 32px;
+            text-decoration: none;
+            font-weight: 600;
+            border-radius: 50px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(46, 125, 50, 0.3);
+        }
+
+        .btn:hover {
+            background: var(--color-primario-oscuro);
+            transform: translateY(-3px);
+            box-shadow: 0 7px 20px rgba(27, 94, 32, 0.4);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="success-card">
+        <div class="success-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                <polyline points="22 4 12 14.01 9 11.01"></polyline>
+            </svg>
+        </div>
+        <h1>¡Mensaje Enviado!</h1>
+        <p>Gracias por contactarnos. Hemos recibido tu consulta y te responderemos a la brevedad posible.</p>
+        <a href="index.html" class="btn">Volver al Inicio</a>
+    </div>
+
+</body>
+</html>
