@@ -1,0 +1,10 @@
+# Coligue Sur de Chile — Venta de Coligues
+# https://aguswer.cl
+
+User-agent: *
+Allow: /
+
+# Páginas que no deben indexar
+Disallow: /enviado.html
+
+Sitemap: https://aguswer.cl/sitemap.xml
