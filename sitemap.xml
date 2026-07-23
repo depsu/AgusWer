@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://aguswer.cl/</loc><lastmod>2026-05-08</lastmod><changefreq>weekly</changefreq><priority>1.0</priority></url>
-  <url><loc>https://aguswer.cl/proyectos.html</loc><lastmod>2026-05-08</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.aguswer.cl/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>
+  <url><loc>https://www.aguswer.cl/proyectos.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.aguswer.cl/blog/</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.aguswer.cl/blog/coligue-bambu-nativo-chileno-vs-bambu-asiatico.html</loc><priority>0.7</priority></url>
+  <url><loc>https://www.aguswer.cl/blog/coligue-para-mineria-faenas-soporte-explosivos.html</loc><priority>0.7</priority></url>
+  <url><loc>https://www.aguswer.cl/blog/coligue-para-vinedos-rodrigones-entutorado-vid.html</loc><priority>0.7</priority></url>
+  <url><loc>https://www.aguswer.cl/blog/como-vendemos-coligue-online-en-todo-chile.html</loc><priority>0.7</priority></url>
 </urlset>
