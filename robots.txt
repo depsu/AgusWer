@@ -7,4 +7,4 @@ Allow: /
 # Páginas que no deben indexar
 Disallow: /enviado.html
 
-Sitemap: https://aguswer.cl/sitemap.xml
+Sitemap: https://www.aguswer.cl/sitemap.xml
