@@ -1,422 +1,243 @@
-<style>
-    :root {
-        --color-primario: #2a5a2a;
-        /* Verde oscuro */
-        --color-secundario: #f4f4f4;
-        /* Fondo claro */
-        --color-texto: #333333;
-        --color-blanco: #ffffff;
-        --nav-height: 70px;
-        /* Altura de la barra de navegación */
-    }
-
-    html {
-        scroll-behavior: smooth;
-        /* Efecto de scroll suave */
-        scroll-padding-top: var(--nav-height);
-        /* Evita que el menú tape los títulos */
-    }
-
-    body {
-        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-        margin: 0;
-        padding: 0;
-        line-height: 1.6;
-        color: var(--color-texto);
-    }
-
-    .container {
-        max-width: 1100px;
-        margin: auto;
-        padding: 0 20px;
-        overflow: hidden;
-    }
-
-    /* --- BARRA DE NAVEGACIÓN --- */
-     .navbar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            height: var(--nav-height);
-            background: rgba(255, 255, 255, 0.85);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            z-index: 1000;
-            box-shadow: var(--sombra-suave);
-            padding: 0 2rem;
-        }
-
-        .navbar-logo {
-
-            font-weight: 700;
-            font-size: 1.5rem;
-            color: var(--color-primario);
-            text-decoration: none;
-        }
-
-        .navbar-logo img {
-            width: 55px;
-            height: 55px;
-        }
-
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 1.5rem;
-        }
-
-        .nav-links a {
-            color: var(--color-texto);
-            text-decoration: none;
-            font-weight: 600;
-            position: relative;
-            padding: 5px 0;
-        }
-
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--color-primario);
-            transition: width 0.3s ease;
-        }
-
-        .nav-links a:hover::after {
-            width: 100%;
-        }
-
-        .hamburger {
-            display: none;
-            cursor: pointer;
-            border: none;
-            background: none;
-        }
-
-        .hamburger .bar {
-            display: block;
-            width: 25px;
-            height: 3px;
-            margin: 5px auto;
-            background-color: var(--color-primario-oscuro);
-            transition: all 0.3s ease-in-out;
-        }
-    /* --- ESTILOS GENERALES Y BOTONES --- */
-    .hero {
-        background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://via.placeholder.com/1500x800.png?text=Fondo+de+Coligues') no-repeat center center/cover;
-        color: var(--color-blanco);
-        height: calc(80vh - var(--nav-height));
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-        padding: 0 20px;
-    }
-
-    .hero h1 {
-        font-size: 2.8rem;
-        margin-bottom: 10px;
-    }
-
-    .hero h2 {
-        font-size: 1.4rem;
-        font-weight: 400;
-        max-width: 800px;
-        margin-bottom: 30px;
-    }
-
-    .btn {
-        display: inline-block;
-        background: var(--color-primario);
-        color: var(--color-blanco);
-        padding: 15px 35px;
-        text-decoration: none;
-        font-size: 1.2rem;
-        font-weight: bold;
-        border-radius: 8px;
-        transition: transform 0.2s ease, background-color 0.3s ease;
-    }
-
-    .btn:hover {
-        background: #3a7a3a;
-        transform: translateY(-2px);
-    }
-
-    section {
-        padding: 80px 0;
-    }
-
-    section h3,
-    .section-title {
-        text-align: center;
-        font-size: 2.2rem;
-        margin-bottom: 50px;
-        color: var(--color-primario);
-    }
-
-    .bg-light {
-        background-color: var(--color-secundario);
-    }
-
-    /* --- SECCIÓN DE PROYECTOS --- */
-    .proyectos-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 30px;
-    }
-
-    .proyecto-card {
-        background: var(--color-blanco);
-        border-radius: 8px;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-        overflow: hidden;
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .proyecto-card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
-    }
-
-    .proyecto-card img {
-        width: 100%;
-        height: 200px;
-        object-fit: cover;
-        display: block;
-    }
-
-    .proyecto-card-content {
-        padding: 20px;
-    }
-
-    .proyecto-card-content h4 {
-        margin-top: 0;
-        font-size: 1.3rem;
-        color: var(--color-primario);
-    }
-
-    .text-center {
-        text-align: center;
-    }
-
-    .mt-40 {
-        margin-top: 40px;
-    }
-
-    /* --- OTROS ESTILOS (Formulario, Footer, etc. se mantienen similares) --- */
-    .form-container {
-        max-width: 700px;
-        margin: auto;
-        background: #fff;
-        padding: 30px;
-        border-radius: 8px;
-        box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-    }
-
-    .form-group {
-        margin-bottom: 20px;
-    }
-
-    .form-group label {
-        display: block;
-        margin-bottom: 5px;
-    }
-
-    .form-group input,
-    .form-group textarea {
-        width: 100%;
-        padding: 12px;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-        box-sizing: border-box;
-    }
-
-    .form-btn {
-        width: 100%;
-        border: none;
-        cursor: pointer;
-    }
-
-    footer {
-        background: var(--color-texto);
-        color: var(--color-blanco);
-        text-align: center;
-        padding: 30px 0;
-    }
-
-    footer a {
-        color: var(--color-blanco);
-        text-decoration: none;
-    }
-
-    /* Adaptación para móviles */
-    @media (max-width: 768px) {
-        .navbar {
-            flex-direction: column;
-            height: auto;
-            padding: 1rem;
-        }
-
-        .navbar ul {
-            flex-direction: column;
-            text-align: center;
-            width: 100%;
-            margin-top: 1rem;
-        }
-
-        .navbar ul li {
-            width: 100%;
-        }
-
-        .hero {
-            height: auto;
-            padding: 60px 20px;
-        }
-
-        .hero h1 {
-            font-size: 2rem;
-        }
-
-        section {
-            padding: 40px 0;
-        }
-    }
-</style>
-
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Proyectos - Coligue Sur de Chile</title>
-    <meta name="description"
-        content="Galería de proyectos realizados con nuestros coligues de alta calidad. Vea nuestras soluciones en agricultura, construcción, minería y más.">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Proyectos con coligüe: minería, viñedos, construcción y CONAF | Coligue Sur</title>
+<meta name="description" content="Galería de proyectos hechos con nuestros coligues: faenas mineras, viñedos y frutales, construcción, reforestación con CONAF, artesanía y cercos perimetrales. Despacho a todo Chile.">
+<link rel="canonical" href="https://www.aguswer.cl/proyectos.html">
+<meta name="robots" content="index,follow">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Proyectos con coligüe: minería, viñedos, construcción y CONAF">
+<meta property="og:description" content="Galería de proyectos hechos con nuestros coligues: faenas mineras, viñedos, construcción, reforestación, artesanía y cercos perimetrales.">
+<meta property="og:url" content="https://www.aguswer.cl/proyectos.html">
+<meta property="og:image" content="https://www.aguswer.cl/banner.png">
+<meta property="og:site_name" content="Coligue Sur de Chile">
+<meta property="og:locale" content="es_CL">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Proyectos con coligüe: minería, viñedos, construcción y CONAF">
+<meta name="twitter:description" content="Galería de proyectos hechos con nuestros coligues, con despacho a todo Chile.">
+<meta name="twitter:image" content="https://www.aguswer.cl/banner.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+    --color-primario: #2E7D32;
+    --color-primario-oscuro: #1B5E20;
+    --color-secundario: #F5F5F5;
+    --color-texto: #333333;
+    --color-blanco: #ffffff;
+    --color-borde: #E0E0E0;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Poppins', sans-serif; color: var(--color-texto); background: var(--color-blanco); line-height: 1.7; font-weight: 300; }
+h1, h2, h3, h4 { font-weight: 600; line-height: 1.25; color: var(--color-primario-oscuro); }
+a { color: var(--color-primario); text-decoration: none; }
+a:hover { text-decoration: underline; }
+.nav-bar { background: white; padding: 18px 30px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 100; display: flex; justify-content: space-between; align-items: center; }
+.nav-bar .logo { font-weight: 700; color: var(--color-primario-oscuro); font-size: 1.25rem; }
+.nav-bar nav a { color: var(--color-texto); margin: 0 15px; font-weight: 500; }
+.nav-bar nav a:hover { color: var(--color-primario); }
+.btn-cot { background: var(--color-primario); color: white !important; padding: 10px 22px; border-radius: 30px; font-weight: 600; }
+.hero-blog { background: linear-gradient(rgba(27,94,32,.7), rgba(46,125,50,.6)), url('/banner.png'); background-size: cover; background-position: center; color: white; padding: 110px 30px 80px; text-align: center; }
+.hero-blog .meta-top { color: #b8e0bb; letter-spacing: 3px; font-size: .8rem; text-transform: uppercase; font-weight: 600; }
+.hero-blog h1 { color: white; font-size: clamp(2rem, 4vw, 3rem); margin: 1rem auto; max-width: 900px; }
+.hero-blog p { font-size: 1.05rem; opacity: .95; }
+.container { max-width: 820px; margin: 0 auto; padding: 60px 30px; }
+article .lead { font-size: 1.2rem; color: #555; border-left: 4px solid var(--color-primario); padding-left: 25px; font-style: italic; margin: 0 0 35px; }
+article h2 { font-size: 1.75rem; margin: 2.2rem 0 1rem; }
+article h3 { font-size: 1.25rem; margin: 1.5rem 0 .7rem; color: var(--color-texto); }
+article p { margin-bottom: 1.1rem; }
+article ul, article ol { padding-left: 1.5rem; margin: 1rem 0 1.5rem; }
+article li { margin-bottom: .5rem; }
+article table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; }
+article th, article td { border: 1px solid var(--color-borde); padding: 12px; text-align: left; font-size: .95rem; }
+article th { background: var(--color-secundario); color: var(--color-primario-oscuro); font-weight: 600; }
+.callout { background: #f0f7f1; border-left: 4px solid var(--color-primario); padding: 18px 22px; margin: 1.5rem 0; border-radius: 0 8px 8px 0; font-size: .95rem; }
+.cta-final { background: var(--color-primario); color: white; padding: 40px; border-radius: 12px; text-align: center; margin-top: 50px; }
+.cta-final h3 { color: white; }
+.cta-final .btn { background: white; padding: 14px 30px; border-radius: 30px; color: var(--color-primario-oscuro) !important; font-weight: 600; display: inline-block; margin-top: 18px; }
+.related { margin-top: 50px; }
+.related h2 { color: var(--color-primario-oscuro); margin-bottom: 20px; }
+.related-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 15px; }
+.related-card { background: var(--color-secundario); padding: 20px; border-radius: 10px; border-left: 3px solid var(--color-primario); }
+.related-card a { color: var(--color-primario-oscuro); font-weight: 600; }
+.related-card .tag { font-size: .7rem; color: #7a7a7a; text-transform: uppercase; letter-spacing: 1.5px; }
+footer.site-footer { background: #14361a; color: #c8d8c9; padding: 50px 30px 25px; margin-top: 80px; }
+footer.site-footer .ft-container { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 30px; }
+footer.site-footer h4 { color: #b8e0bb; margin-bottom: 15px; font-weight: 600; }
+footer.site-footer ul { list-style: none; padding: 0; }
+footer.site-footer ul li { margin-bottom: .5rem; }
+footer.site-footer ul li a { color: #c8d8c9; }
+footer.site-footer .copyright { text-align: center; padding-top: 30px; margin-top: 30px; border-top: 1px solid #2a4a30; font-size: .85rem; }
+@media (max-width: 768px) { .nav-bar nav { display: none; } }
 
-    <link rel="stylesheet" href="style.css">
+/* Galería de proyectos (propio de esta página) */
+.container-ancho { max-width: 1100px; margin: 0 auto; padding: 60px 30px; }
+.proyectos-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-top: 35px; }
+.proyecto-card { background: var(--color-blanco); border: 1px solid var(--color-borde); border-radius: 10px; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.06); }
+.proyecto-card img { width: 100%; height: 210px; object-fit: cover; display: block; }
+.proyecto-card-content { padding: 20px; }
+.proyecto-card-content h2 { font-size: 1.2rem; margin-bottom: .4rem; }
+.proyecto-card-content p { font-size: .95rem; margin-bottom: .6rem; }
+.intro-proyectos { max-width: 820px; }
+</style>
 </head>
-
 <body>
-
-
-
-
-    <nav class="navbar">
-        <div class="container" style="display:flex; justify-content:space-between; align-items:center; width:100%;">
-            <a href="#" class="navbar-logo">
-                <img src="logo-removebg-preview.png" alt="Logo ColigueSur" />
-            </a>
-            <ul class="nav-links">
-                           <li><a href="index.html#hero">Inicio</a></li>
-            <li><a href="index.html#propuesta-valor">Nosotros</a></li>
-            <li><a href="proyectos.html">Proyectos</a></li>
-            <li><a href="index.html#contacto">Contacto</a></li>
-            </ul>
-            <button class="hamburger" id="hamburger" aria-label="Abrir menú">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
-            </button>
-        </div>
+<header class="nav-bar">
+    <a href="/" class="logo">Coligue Sur</a>
+    <nav>
+        <a href="/">Inicio</a>
+        <a href="/proyectos.html">Proyectos</a>
+        <a href="/blog/">Blog</a>
+        <a href="/#contacto">Contacto</a>
+        <a href="https://api.whatsapp.com/send/?phone=56987411422" class="btn-cot" target="_blank" rel="noopener">Cotizar</a>
     </nav>
+</header>
 
-    <main>
-        <section id="galeria-completa">
-            <div class="container">
-                <h1 class="section-title">Galería de Proyectos</h1>
-                <p style="text-align: center; max-width: 800px; margin: -40px auto 50px auto;">
-                    Conoce cómo nuestros coligues marcan la diferencia en diversas industrias. Calidad y resistencia que
-                    se ven en cada proyecto.
-                </p>
+<section class="hero-blog">
+    <p class="meta-top">Galería · Proyectos realizados</p>
+    <h1>Proyectos con coligüe: minería, viñedos, construcción y CONAF</h1>
+    <p>Despacho a todo Chile · Producción propia</p>
+</section>
 
-                <div class="proyectos-grid">
-                    <div class="proyecto-card">
-                        <img src="servicio1.jpeg" alt="Proyecto agrícola con coligues">
-                        <div class="proyecto-card-content">
-                            <h4>Proyecto Agrícola</h4>
-                            <p>Soluciones para el campo.</p>
-                        </div>
-                    </div>
-                    <div class="proyecto-card">
-                        <img src="servicio2.jpeg" alt="Proyecto de construcción con coligues">
-                        <div class="proyecto-card-content">
-                            <h4>Proyecto de Construcción</h4>
-                            <p>Estructuras resistentes y naturales.</p>
-                        </div>
-                    </div>
-                    <div class="proyecto-card">
-                        <img src="servicio3.jpeg" alt="Proyecto de minería con coligues">
-                        <div class="proyecto-card-content">
-                            <h4>Aplicaciones en Minería</h4>
-                            <p>Señalización y soporte.</p>
-                        </div>
-                    </div>
-                    <div class="proyecto-card">
-                        <img src="servicio4.jpeg" alt="Proyecto para viñedos">
-                        <div class="proyecto-card-content">
-                            <h4>Estructuras para Viñedos</h4>
-                            <p>Soporte para vides y parras.</p>
-                        </div>
-                    </div>
-                    <div class="proyecto-card">
-                        <img src="servicio6.jpeg" alt="Proyecto de artesanía y diseño">
-                        <div class="proyecto-card-content">
-                            <h4>Diseño y Artesanía</h4>
-                            <p>Creaciones únicas con coligüe.</p>
-                        </div>
-                    </div>
-                    <div class="proyecto-card">
-                        <img src="servicio5.jpeg" alt="Cerco perimetral con coligues">
-                        <div class="proyecto-card-content">
-                            <h4>Cercos Perimetrales</h4>
-                            <p>Delimitación rústica y duradera.</p>
-                        </div>
-                    </div>
-                </div>
+<div class="container-ancho">
+    <p class="intro-proyectos">Conoce cómo nuestros coligues marcan la diferencia en distintas industrias. Calidad y
+        resistencia que se ven en cada proyecto. Si quieres el detalle técnico de cada uso, en el
+        <a href="/blog/">blog</a> explicamos medidas, cantidades y tratamiento de la caña.</p>
 
-                <div class="text-center mt-40">
-                    <a href="index.html#contacto" class="btn">¿Interesado? ¡Cotiza tu proyecto!</a>
-                </div>
+    <div class="proyectos-grid">
+        <div class="proyecto-card">
+            <img src="/servicio1.jpeg" alt="Proyecto agrícola con coligues" loading="lazy">
+            <div class="proyecto-card-content">
+                <h2>Proyecto Agrícola</h2>
+                <p>Soluciones para el campo.</p>
+                <a href="/blog/coligue-para-vinedos-rodrigones-entutorado-vid.html">Rodrigones y entutorado →</a>
             </div>
-        </section>
-    </main>
-
-     <footer class="footer">
-        <div class="container">
-            <p>&copy; 2025 Coligue Sur de Chile. Todos los derechos reservados.</p>
-            <p>Calidad y Compromiso desde el Sur para todo el País.</p>
-            <p style="font-size:.85rem;opacity:.8;margin-top:8px;">Sitio desarrollado por <a href="https://paginasfast.cl" rel="noopener" target="_blank">PaginasFast</a></p>
         </div>
-    </footer>
+        <div class="proyecto-card">
+            <img src="/servicio2.jpeg" alt="Proyecto de construcción con coligues" loading="lazy">
+            <div class="proyecto-card-content">
+                <h2>Proyecto de Construcción</h2>
+                <p>Estructuras resistentes y naturales.</p>
+                <a href="/blog/quincho-cerco-coligue-parcela-obras.html">Quincho y cerco de coligüe →</a>
+            </div>
+        </div>
+        <div class="proyecto-card">
+            <img src="/servicio3.jpeg" alt="Proyecto de minería con coligues" loading="lazy">
+            <div class="proyecto-card-content">
+                <h2>Aplicaciones en Minería</h2>
+                <p>Señalización y soporte.</p>
+                <a href="/blog/coligue-para-mineria-faenas-soporte-explosivos.html">Coligüe en faena minera →</a>
+            </div>
+        </div>
+        <div class="proyecto-card">
+            <img src="/servicio4.jpeg" alt="Proyecto para viñedos" loading="lazy">
+            <div class="proyecto-card-content">
+                <h2>Estructuras para Viñedos</h2>
+                <p>Soporte para vides y parras.</p>
+                <a href="/blog/coligue-para-vinedos-rodrigones-entutorado-vid.html">Cantidades por hectárea →</a>
+            </div>
+        </div>
+        <div class="proyecto-card">
+            <img src="/servicio6.jpeg" alt="Proyecto de artesanía y diseño" loading="lazy">
+            <div class="proyecto-card-content">
+                <h2>Diseño y Artesanía</h2>
+                <p>Creaciones únicas con coligüe.</p>
+                <a href="/blog/coligue-bambu-nativo-chileno-vs-bambu-asiatico.html">Coligüe vs bambú asiático →</a>
+            </div>
+        </div>
+        <div class="proyecto-card">
+            <img src="/servicio5.jpeg" alt="Cerco perimetral con coligues" loading="lazy">
+            <div class="proyecto-card-content">
+                <h2>Cercos Perimetrales</h2>
+                <p>Delimitación rústica y duradera.</p>
+                <a href="/blog/raices-de-bambu-cerca-de-la-casa-canerias.html">Bambú, raíces y cañerías →</a>
+            </div>
+        </div>
+    </div>
 
-    <script>
-             const hamburger = document.getElementById('hamburger');
-        const navLinks = document.querySelector('.nav-links');
+    <div class="cta-final">
+        <h3>¿Interesado? Cotiza tu proyecto</h3>
+        <p>Te ayudamos a calcular las cañas exactas según tus metros y diseño. Despacho a todo Chile, desde 100 cañas.</p>
+        <a href="https://api.whatsapp.com/send/?phone=56987411422&text=Hola%2C%20quiero%20cotizar%20coligue%20para%20un%20proyecto" class="btn" target="_blank" rel="noopener">Cotizar por WhatsApp</a>
+    </div>
 
-        hamburger.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-            hamburger.classList.toggle('active');
-        });
+    <div class="related">
+        <h2>Guías del blog</h2>
+        <div class="related-grid">
+            <div class="related-card">
+                <span class="tag">Compra</span><br>
+                <a href="/blog/como-vendemos-coligue-online-en-todo-chile.html">Cómo vendemos coligüe online en todo Chile →</a>
+            </div>
+            <div class="related-card">
+                <span class="tag">Jardinería</span><br>
+                <a href="/blog/raices-de-bambu-cerca-de-la-casa-canerias.html">Raíces de bambú y cañerías →</a>
+            </div>
+            <div class="related-card">
+                <span class="tag">Botánica</span><br>
+                <a href="/blog/coligue-bambu-nativo-chileno-vs-bambu-asiatico.html">Coligüe vs bambú asiático →</a>
+            </div>
+        </div>
+    </div>
+</div>
 
-        // Cierra el menú al hacer clic en un enlace (para SPA-like behavior)
-        document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', () => {
-                if (navLinks.classList.contains('active')) {
-                    navLinks.classList.remove('active');
-                    hamburger.classList.remove('active');
-                }
-            });
-        });
-
-    </script>
-
+<footer class="site-footer">
+    <div class="ft-container">
+        <div>
+            <h4>Coligue Sur de Chile</h4>
+            <p>Productores y distribuidores de coligues para agricultura, construcción y minería. Despacho a todo Chile.</p>
+        </div>
+        <div>
+            <h4>Navegación</h4>
+            <ul>
+                <li><a href="/">Inicio</a></li>
+                <li><a href="/proyectos.html">Proyectos</a></li>
+                <li><a href="/blog/">Blog</a></li>
+                <li><a href="/#contacto">Contacto</a></li>
+            </ul>
+        </div>
+        <div>
+            <h4>Aliados</h4>
+            <ul>
+                <li><a href="https://paginasfast.cl" rel="noopener" target="_blank">Sitio por PaginasFast</a></li>
+                <li><a href="https://www.xn--cabaassantaregina-ixb.cl/" rel="noopener" target="_blank">Cabañas Santa Regina</a></li>
+                <li><a href="https://www.automatizaweb.cl" rel="noopener" target="_blank">Automatización web</a></li>
+            </ul>
+        </div>
+        <div>
+            <h4>Contacto</h4>
+            <ul>
+                <li><a href="tel:+56987411422">+56 9 8741 1422</a></li>
+                <li><a href="mailto:coliguesurdechile@gmail.com">coliguesurdechile@gmail.com</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="copyright">&copy; <span id="yy"></span> Coligue Sur de Chile · Calidad y compromiso desde el sur</div>
+</footer>
+<script>document.getElementById('yy').textContent = new Date().getFullYear();</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "name": "Proyectos con coligüe: minería, viñedos, construcción y CONAF",
+  "description": "Galería de proyectos hechos con coligues de Coligue Sur de Chile: faenas mineras, viñedos y frutales, construcción, reforestación con CONAF, artesanía y cercos perimetrales.",
+  "url": "https://www.aguswer.cl/proyectos.html",
+  "inLanguage": "es-CL",
+  "isPartOf": {"@type": "WebSite", "name": "Coligue Sur de Chile", "url": "https://www.aguswer.cl/"},
+  "publisher": {"@type": "Organization", "name": "Coligue Sur de Chile", "url": "https://www.aguswer.cl/"}
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://www.aguswer.cl/"},
+    {"@type": "ListItem", "position": 2, "name": "Proyectos", "item": "https://www.aguswer.cl/proyectos.html"}
+  ]
+}
+</script>
 </body>
-
 </html>

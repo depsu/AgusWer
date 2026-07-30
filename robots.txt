@@ -1,5 +1,5 @@
 # Coligue Sur de Chile — Venta de Coligues
-# https://aguswer.cl
+# https://www.aguswer.cl
 
 User-agent: *
 Allow: /
