@@ -97,7 +97,7 @@ footer.site-footer .copyright { text-align: center; padding-top: 30px; margin-to
 <p class="lead">Vender coligüe por internet no es solo tener un sitio y un WhatsApp. Detrás hay una oficina chica que cotiza, ordena pedidos, emite documentos y guarda fotos. Estas son las herramientas para que ese trabajo no dependa de la memoria de una sola persona.</p>
 
 <h2>Correo con dominio propio para cotizar a empresas</h2>
-<p>Cuando una viña, una constructora o una contratista minera pide cotización por correo, el remitente dice quién eres. Un correo con el mismo dominio del sitio que ya visitaron se entiende de inmediato; una casilla gratuita genérica obliga al comprador a confirmar que se trata de la misma empresa.</p>
+<p>Cuando una viña, una constructora o una contratista minera pide cotización por correo, el remitente dice quién eres. Un correo con el mismo dominio del sitio que ya visitaron se entiende de inmediato. Una casilla gratuita genérica obliga al comprador a confirmar que se trata de la misma empresa.</p>
 <p>Hacen falta dos cosas. La primera es el dominio inscrito a nombre del negocio: los dominios <strong>.cl</strong> se inscriben y renuevan en <a href="https://www.nic.cl/" rel="noopener">NIC Chile</a>, y conviene que el titular sea la empresa o su dueño, no quien armó el sitio. La segunda es un servicio de correo que use ese dominio, que normalmente viene incluido en el paquete de oficina del que hablamos más abajo.</p>
 <p>Una costumbre que ahorra problemas: crear casillas por función (ventas, despachos, administración) y no solo por persona. Si alguien deja el equipo, el historial de cotizaciones queda en la empresa.</p>
 
@@ -113,13 +113,40 @@ footer.site-footer .copyright { text-align: center; padding-top: 30px; margin-to
 </ul>
 <p>Que los estados sean una lista cerrada y no texto libre permite filtrar qué cargas salen esta semana y cuáles siguen esperando pago. Quien embala y quien despacha miran la misma fila.</p>
 
+<h2>Una fila de la planilla, con un pedido de coligüe</h2>
+<p>Las columnas genéricas sirven para cualquier tienda. Lo que cambia en nuestro rubro es el detalle de la medida. Una vara de coligüe no se pide por unidad suelta sino por largo, diámetro y cantidad, así que esos tres datos merecen columna propia. Si van juntos en una celda de texto, tarde o temprano alguien despacha el largo correcto con el diámetro equivocado.</p>
+<p>Así se ve una fila de ejemplo para el pedido de una viña. Los números de medida y cantidad salen de nuestra tabla de <a href="/venta-de-coligues.html">medidas y formatos de coligüe</a>, el cliente es inventado para ilustrar.</p>
+<table>
+<thead><tr><th>Columna</th><th>Ejemplo</th><th>Por qué va separada</th></tr></thead>
+<tbody>
+<tr><td>Uso</td><td>Rodrigón de viñedo, espaldera VSP</td><td>Define qué varas se seleccionan en la cosecha</td></tr>
+<tr><td>Largo</td><td>2,2 a 2,5 m</td><td>Se carga y se cobra distinto según el largo</td></tr>
+<tr><td>Diámetro mínimo en la base</td><td>3 cm</td><td>Es el dato que más se olvida y el que más reclamos evita</td></tr>
+<tr><td>Cantidad</td><td>4.150 + 10 % de holgura</td><td>Una hectárea lleva unos 4.150, uno por planta, y la holgura cubre descarte y cortes</td></tr>
+<tr><td>Comuna de despacho</td><td>Curicó</td><td>Con la comuna se calcula el flete real y la ruta</td></tr>
+<tr><td>Forma de pago</td><td>Factura a 30 días</td><td>Nuestros clientes empresa pagan por transferencia o factura a 30 días, y la fila debe mostrar cuándo vence</td></tr>
+<tr><td>Estado</td><td>Confirmado</td><td>Lista cerrada, nunca texto libre</td></tr>
+</tbody>
+</table>
+<p>Con la planilla armada así, preguntas como "¿cuántos rodrigones salen al Maule este mes?" o "¿qué facturas vencen esta semana?" se responden con un filtro y no revisando conversaciones de WhatsApp.</p>
+
+<h2>Una respuesta guardada para cotizar por correo</h2>
+<p>La mayoría de las consultas por correo llegan incompletas: "¿cuánto valen 1.000 cañas?" sin largo ni comuna. Tener una respuesta guardada en el correo ahorra escribir lo mismo cada vez y evita cotizar a ciegas. La nuestra pide siempre lo mismo antes de dar un valor:</p>
+<ol>
+<li>Largo de la vara en metros, y si el proyecto acepta tolerancia.</li>
+<li>Diámetro mínimo aceptable en la base.</li>
+<li>Cantidad, sumando un 10 % para descarte y cortes.</li>
+<li>Comuna de despacho.</li>
+</ol>
+<p>Cuando llegan los cuatro datos, la cotización va con la caña y el flete por separado. Es lo que permite al cliente comparar con otros proveedores sin sorpresas en el transporte, y a nosotros nos deja anotar en la fila el valor de cada parte. Si el correo sale desde la casilla de ventas con el dominio del sitio, el comprador de una viña o de una minera lo reconoce como la misma empresa que encontró en Google.</p>
+
 <h2>Boletas, facturas y guías de despacho</h2>
 <p>Una carga que sale a región viaja con su documento. En Chile las boletas, facturas y guías de despacho se emiten de forma electrónica a través de los sistemas que define el <a href="https://www.sii.cl/" rel="noopener">Servicio de Impuestos Internos</a>, ya sea con el sistema de facturación gratuito del propio SII o con un software de mercado autorizado. Los requisitos se consultan directamente en el sitio del SII, porque cambian con el tiempo.</p>
 <p>Lo que sí depende de la oficina es el orden interno: guardar el PDF de cada documento en una carpeta por año y mes, nombrarlo con el folio y el cliente, y anotar ese folio en la fila del pedido. Cuando un cliente pide reenviar una guía de hace meses, se encuentra sin revolver el correo.</p>
 
 <h2>Respaldo de fotos de productos</h2>
 <p>Las fotos de las varas, de las medidas y de la carga lista antes de salir son parte del trabajo de venta: responden preguntas antes de que las hagan y sirven de respaldo si hay un reclamo. El problema es que casi siempre viven en el teléfono de quien las tomó, y un teléfono se pierde o se cambia.</p>
-<p>La regla que funciona es simple: las fotos se suben el mismo día a una carpeta compartida en la nube, organizada por producto para las que van al sitio y por pedido para las que documentan despachos. Se guardan en su resolución original y, para el material del catálogo, se mantiene una segunda copia en un disco fuera de la nube. No hace falta software especial; hace falta que sea una costumbre.</p>
+<p>La regla que funciona es simple: las fotos se suben el mismo día a una carpeta compartida en la nube, organizada por producto para las que van al sitio y por pedido para las que documentan despachos. Se guardan en su resolución original y, para el material del catálogo, se mantiene una segunda copia en un disco fuera de la nube. No hace falta software especial. Hace falta que sea una costumbre.</p>
 
 <h2>Cómo elegir el paquete de oficina: Google o Microsoft</h2>
 <p>Los dos paquetes más comunes para una pyme son Google Workspace y Microsoft 365. Ambos incluyen correo con dominio propio, almacenamiento en la nube, planilla compartida y videollamadas, así que la decisión no pasa por lo que traen sino por cómo trabaja tu equipo. En <a href="https://www.vitisorigins.cl/recursos/microsoft-365-vs-google-workspace/">vitisorigins.cl</a> comparan Microsoft 365 y Google Workspace para empresas, con los criterios que importan al elegir.</p>
@@ -212,7 +239,7 @@ footer.site-footer .copyright { text-align: center; padding-top: 30px; margin-to
       "url": "https://www.aguswer.cl/blog/herramientas-de-oficina-tienda-online-chica.html",
       "image": "https://www.aguswer.cl/banner.png",
       "datePublished": "2026-10-08",
-      "dateModified": "2026-10-08",
+      "dateModified": "2026-10-14",
       "author": {"@type": "Organization", "name": "Coligue Sur de Chile", "url": "https://www.aguswer.cl"},
       "publisher": {"@type": "Organization", "name": "Coligue Sur de Chile", "url": "https://www.aguswer.cl"},
       "inLanguage": "es-CL"
